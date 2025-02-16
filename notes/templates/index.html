@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gravity</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo" onclick="window.location.href='/'">Gravity</div>
+        <div class="menu">
+            <a href="{% url 'notes_page' %}"><button>Мои заметки</button></a>
+            <button onclick="showPage('progress')">Прогресс</button>
+            <button onclick="showPage('music')">Музыка</button>
+            <button onclick="showPage('about')">О нас</button>
+            <button onclick="showPage('profile')">Профиль</button>
+        </div>
+    </div>
+
+<div class="content">
+    <div id="home" class="page active">
+        <h1>Добро пожаловать в Gravity notes</h1>
+        <p>Лучший центр управления заметками и организации проектов</p>
+    </div>
+
+    <div id="notes" class="page">
+        <h1>Мои заметки</h1>
+        <p>Здесь вы можете управлять своими заметками.</p>
+    </div>
+    <div id="progress" class="page">
+        <h1>Прогресс</h1>
+        <p>Отслеживайте свой прогресс.</p>
+    </div>
+    <div id="music" class="page">
+        <h1>Музыка</h1>
+        <p>Добавьте любимую музыку для лучшей концентрации.</p>
+    </div>
+    <div id="about" class="page">
+        <h1>О нас</h1>
+        <p>Информация о проекте Gravity.</p>
+    </div>
+    <div id="profile" class="page">
+        <h1>Профиль</h1>
+        <p>Ваш личный профиль и настройки.</p>
+    </div>
+</div>
+
+
+    <script>
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            document.getElementById(pageId).classList.add('active');
+        }
+    </script>
+</body>
+</html>

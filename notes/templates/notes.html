@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мои Заметки</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/notes.css' %}">
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo" onclick="window.location.href='/'">Gravity</div>
+        <div class="menu">
+            <a href="{% url 'notes_page' %}"><button>Мои заметки</button></a>
+            <button onclick="showPage('progress')">Прогресс</button>
+            <button onclick="showPage('music')">Музыка</button>
+            <button onclick="showPage('about')">О нас</button>
+            <button onclick="showPage('profile')">Профиль</button>
+        </div>
+    </div>
+
+    <div class="content-wrapper">
+        <!-- Левая панель: кнопки + список папок -->
+        <div class="left-panel">
+            <div class="folder-actions">
+                <button class="menu-button" onclick="createFolder()">Создать папку</button>
+                <button class="menu-button" onclick="openEditor()">Добавить заметку</button>
+            </div>
+            <div class="vertical-divider"></div>
+            <div id="folderList" class="folder-list"></div>
+        </div>
+
+        <!-- Тонкая вертикальная линия -->
+        <div class="line-divider"></div>
+
+        <!-- Правая панель: заметки -->
+        <div class="right-panel">
+            <div id="notesList" class="notes-list"></div>
+        </div>
+    </div>
+
+    <!-- Редактор заметки (модальное окно) -->
+    <div class="note-editor" id="noteEditor" style="display: none;">
+        <div class="close-editor" onclick="closeEditor()">←</div>
+        <input type="text" id="noteTitle" class="note-title-input" placeholder="Введите название...">
+        <div class="divider"></div>
+        <textarea id="noteContent" class="note-content-input" placeholder="Введите текст заметки..."></textarea>
+        <button class="menu-button" onclick="saveNote()">Сохранить</button>
+    </div>
+
+    <!-- Подключаем notes.js -->
+    <script src="{% static 'js/notes.js' %}"></script>
+</body>
+</html>

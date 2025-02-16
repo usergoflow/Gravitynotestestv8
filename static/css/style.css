@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Orbitron', sans-serif;
+}
+
+body {
+    background: linear-gradient(to bottom, #010106, #080f24, #2a5d9e);
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.navbar {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    background: linear-gradient(45deg, #00ccff, #ff00ff, #8000ff);
+    -webkit-background-clip: text;
+    color: transparent;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+    text-shadow: 0 0 30px #00ccff, 0 0 50px #ff00ff;
+}
+
+.logo:hover {
+    transform: scale(1.2);
+}
+
+.menu {
+    display: flex;
+    gap: 15px;
+}
+
+.menu button, .menu-button {
+    background: linear-gradient(45deg, #8a2be2, #a020f0);
+    color: white;
+    border: none;
+    padding: 14px 30px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 30px #8a2be2, 0 0 60px #a020f0;
+}
+
+.menu button:hover, .menu-button:hover {
+    transform: scale(1.1); /* Только увеличение, без поворота */
+    box-shadow: 0 0 40px #8a2be2, 0 0 80px #a020f0;
+}
+
+
+.content {
+    margin-top: 100px;
+    text-align: center;
+    width: 80%;
+}
+
+.page {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.page.active {
+    display: block;
+    opacity: 1;
+}
+
+.notes-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.note-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+    margin: 10px 0;
+    text-align: center;
+    font-size: 18px;
+}
+
+.title {
+    text-align: center;
+    font-size: 28px;
+    margin-top: 20px;
+    text-shadow: 0 0 30px #00ccff, 0 0 50px #ff00ff;
+}

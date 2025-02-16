@@ -1,0 +1,206 @@
+/* Оболочка всего контента */
+.content-wrapper {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    width: 100%;
+    padding: 20px;
+}
+
+/* Левая панель: кнопки + папки */
+.left-panel {
+    display: flex;
+    flex-direction: column;
+    width: 250px; /* фиксированная ширина под список папок */
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    gap: 10px; /* отступ между элементами */
+}
+
+/* Горизонтальный контейнер для кнопок */
+.folder-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Тонкая горизонтальная линия под кнопками */
+.vertical-divider {
+    width: 100%;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.4);
+    margin: 10px 0;
+}
+
+/* Список папок */
+.folder-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+/* Отдельная папка */
+.folder-list .folder-item {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    color: white;
+    text-align: center;
+    transition: background 0.3s;
+}
+
+.folder-list .folder-item:hover,
+.folder-list .folder-item.active {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Тонкая вертикальная полоса между панелями */
+.line-divider {
+    width: 2px;
+    background: rgba(255, 255, 255, 0.3);
+    height: 100%;
+    margin: 0 20px;
+}
+
+/* Правая панель с заметками */
+.right-panel {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Список заметок */
+.notes-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    width: 100%;
+    padding: 20px;
+    justify-content: flex-start;
+}
+
+/* Одна заметка */
+.note-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+    width: 220px;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    font-size: 16px;
+    overflow: hidden;
+    position: relative;
+}
+
+.note-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 5px;
+}
+
+.note-content {
+    max-height: 4.5em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    color: white;
+    font-size: 14px;
+}
+
+.note-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+
+/* Кнопки удаления/редактирования заметки */
+.edit-button, .delete-button {
+    background: linear-gradient(45deg, #ff9800, #ff5722);
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 0 10px #ff9800;
+}
+
+.edit-button:hover {
+    background: #ff5722;
+    box-shadow: 0 0 15px #ff5722;
+}
+
+.delete-button {
+    background: linear-gradient(45deg, #f44336, #d32f2f);
+    box-shadow: 0 0 10px #f44336;
+}
+
+.delete-button:hover {
+    background: #d32f2f;
+    box-shadow: 0 0 15px #d32f2f;
+}
+
+/* Окно редактора заметки */
+.note-editor {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px #ffffff;
+    width: 50%;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.note-title-input {
+    width: 90%;
+    font-size: 20px;
+    padding: 10px;
+    border: none;
+    background: transparent;
+    color: white;
+    outline: none;
+}
+
+.divider {
+    width: 90%;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.5);
+    margin: 5px 0;
+}
+
+.note-content-input {
+    width: 90%;
+    height: 80%;
+    margin-top: 10px;
+    background: transparent;
+    color: white;
+    font-size: 18px;
+    border: none;
+    outline: none;
+}
+
+.close-editor {
+    align-self: flex-start;
+    cursor: pointer;
+    color: white;
+    font-size: 24px;
+}
